@@ -1,4 +1,1 @@
-export {
-  default as GameService,
-  GameService as TGameService,
-} from './game.service';
+export { default as GameService } from './game.service';
