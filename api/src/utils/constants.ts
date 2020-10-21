@@ -3,6 +3,7 @@ export enum ErrorType {
   NOT_FOUND = 'NOT_FOUND',
   MISSING_REQUIRED_FIELDS = 'MISSING_REQUIRED_FIELDS',
   METHOD_NOT_ALLOWED = 'METHOD_NOT_ALLOWED',
+  BAD_REQUEST = 'BAS_REQUEST',
 }
 
 export type TError = Error & {
@@ -36,6 +37,11 @@ export const ErrorValue = {
     id: ErrorType.METHOD_NOT_ALLOWED,
     statusCode: 405,
     message: 'Método no soportado.',
+  },
+  BAD_REQUEST: {
+    id: ErrorType.BAD_REQUEST,
+    statusCode: 400,
+    message: 'Solicitud incorrecta',
   },
 };
 
