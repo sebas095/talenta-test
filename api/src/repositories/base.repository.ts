@@ -11,7 +11,7 @@ class BaseRepository {
     return await this.model.findById(id);
   }
 
-  async getBy(filter: object): Promise<Document[] | null> {
+  async getBy(filter: Record<string, unknown>): Promise<Document[] | null> {
     return await this.model.find(filter);
   }
 
@@ -19,11 +19,14 @@ class BaseRepository {
     return await this.model.find({});
   }
 
-  async create(entity: object): Promise<Document | null> {
+  async create(entity: Record<string, unknown>): Promise<Document | null> {
     return await this.model.create(entity);
   }
 
-  async update(id: string, entity: object): Promise<Document | null> {
+  async update(
+    id: string,
+    entity: Record<string, unknown>,
+  ): Promise<Document | null> {
     return await this.model.findByIdAndUpdate(id, entity, { new: true });
   }
 
