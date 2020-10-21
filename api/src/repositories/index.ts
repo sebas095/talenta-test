@@ -1,4 +1,1 @@
-export {
-  default as GameRepository,
-  GameRepository as TGameRepository,
-} from './game.repository';
+export { default as GameRepository } from './game.repository';
