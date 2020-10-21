@@ -8,17 +8,22 @@ export interface IGame extends Document {
   turn: Players;
 }
 
-const gameStatus: object = {
+type EnumSchema = {
+  values: string[];
+  message: string;
+};
+
+const gameStatus: EnumSchema = {
   values: [GameStatus.STARTED, GameStatus.GAME_OVER],
   message: '{VALUE} no es un estado válido',
 };
 
-const player: object = {
+const player: EnumSchema = {
   values: [Players.PLAYER_ONE, Players.PLAYER_TWO],
   message: '{VALUE} no es un jugador válido',
 };
 
-const result: object = {
+const result: EnumSchema = {
   values: [GameResult.PLAYER_ONE, GameResult.PLAYER_TWO, GameResult.DRAW],
   message: '{VALUE} no es un resultado válido',
 };
