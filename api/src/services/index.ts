@@ -1,1 +1,1 @@
-export { default as GameService } from './game.service';
+export { default as GameService, IGameList, IGameStats } from './game.service';
