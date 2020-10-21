@@ -1,5 +1,12 @@
-import mongoose, { Schema } from 'mongoose';
-import { GameStatus, Players } from '../utils/constants';
+import mongoose, { Schema, Document } from 'mongoose';
+import { GameStatus, Players, GameResult } from '../utils/constants';
+
+export interface IGame extends Document {
+  status: GameStatus;
+  board: Array<string | null>;
+  winner: GameResult;
+  turn: Players;
+}
 
 const gameStatus: object = {
   values: [GameStatus.STARTED, GameStatus.GAME_OVER],
@@ -7,12 +14,12 @@ const gameStatus: object = {
 };
 
 const player: object = {
-  values: ['X', 'O'],
+  values: [Players.PLAYER_ONE, Players.PLAYER_TWO],
   message: '{VALUE} no es un jugador válido',
 };
 
 const result: object = {
-  values: ['X', 'O', 'D'], // player1, player2, draw
+  values: [GameResult.PLAYER_ONE, GameResult.PLAYER_TWO, GameResult.DRAW],
   message: '{VALUE} no es un resultado válido',
 };
 
@@ -42,4 +49,4 @@ const GameSchema: Schema = new Schema(
   { timestamps: { createdAt: true, updatedAt: true } },
 );
 
-export default mongoose.model('Game', GameSchema);
+export default mongoose.model<IGame>('Game', GameSchema);
