@@ -1,5 +1,23 @@
 {
   "compilerOptions": {
+    "paths": {
+      // index path
+      "@controllers": ["src/controllers"],
+      "@middlewares": ["src/middlewares"],
+      "@models": ["src/models"],
+      "@repositories": ["src/repositories"],
+      "@routes": ["src/routes"],
+      "@services": ["src/services"],
+
+      "@config/*": ["src/config/*"],
+      "@controllers/*": ["src/controllers/*"],
+      "@middlewares/*": ["src/middlewares/*"],
+      "@models/*": ["src/models/*"],
+      "@repositories/*": ["src/repositories/*"],
+      "@routes/*": ["src/routes/*"],
+      "@services/*": ["src/services/*"],
+      "@utils/*": ["src/utils/*"]
+    },
     "target": "es6",
     "module": "commonjs",
     "outDir": "./build",
