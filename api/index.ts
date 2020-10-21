@@ -6,6 +6,9 @@ import logger from 'morgan';
 import cors from 'cors';
 import mongoose from 'mongoose';
 
+// Middlewares
+import { ErrorMiddleware, NotFoundMiddleware } from './src/middlewares';
+
 // config
 const PORT: number = Number(process.env.PORT) || 5000;
 const MONGO_URI: string = process.env.MONGO_URI as string;
@@ -20,6 +23,9 @@ apiRoutes.use(express.json());
 apiRoutes.use(logger('dev'));
 
 app.use('/v1/api', apiRoutes);
+
+app.use(NotFoundMiddleware);
+app.use(ErrorMiddleware);
 
 mongoose
   .connect(MONGO_URI, {
