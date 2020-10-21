@@ -1,13 +1,13 @@
 import { BaseService } from './base.service';
-import { GameRepository, TGameRepository } from '../repositories';
+import { GameRepository } from '../repositories';
 
-export class GameService extends BaseService {
-  private gameRepository: TGameRepository;
+let _gameRepository: GameRepository;
 
-  constructor(GameRepository: TGameRepository) {
+class GameService extends BaseService {
+  constructor({ GameRepository }: { GameRepository: GameRepository }) {
     super(GameRepository);
-    this.gameRepository = GameRepository;
+    _gameRepository = GameRepository;
   }
 }
 
-export default new GameService(GameRepository);
+export default GameService;
