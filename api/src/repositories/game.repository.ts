@@ -1,14 +1,14 @@
 import { BaseRepository } from './base.repository';
-import { Game, IGame } from '../models';
+import { IGame } from '../models';
 import { Model } from 'mongoose';
 
-export class GameRepository extends BaseRepository {
-  private gameModel: Model<IGame>;
+let _gameModel: Model<IGame>;
 
-  constructor(Game: Model<IGame>) {
+class GameRepository extends BaseRepository {
+  constructor({ Game }: { Game: Model<IGame> }) {
     super(Game);
-    this.gameModel = Game;
+    _gameModel = Game;
   }
 }
 
-export default new GameRepository(Game);
+export default GameRepository;
