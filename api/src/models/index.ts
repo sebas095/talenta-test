@@ -1,1 +1,1 @@
-export { default as Game } from './game.model';
+export { default as Game, IGame } from './game.model';
