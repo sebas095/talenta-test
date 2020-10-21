@@ -38,11 +38,14 @@ class BaseService {
     return await this.repository.getAll();
   }
 
-  async create(entity: object): Promise<Document | null> {
+  async create(entity: Record<string, unknown>): Promise<Document | null> {
     return await this.repository.create(entity);
   }
 
-  async update(id: string, entity: object): Promise<Document | null> {
+  async update(
+    id: string,
+    entity: Record<string, unknown>,
+  ): Promise<Document | null> {
     if (!id) {
       const error: TError = formatError(
         ErrorType.BAD_REQUEST,
