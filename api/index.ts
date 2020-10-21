@@ -1,3 +1,4 @@
+import 'express-async-errors';
 import { config } from 'dotenv';
 config(); // config environment variables
 
@@ -5,6 +6,9 @@ import express, { Application, Router } from 'express';
 import logger from 'morgan';
 import cors from 'cors';
 import mongoose from 'mongoose';
+
+// Routes
+import { GameRoutes } from './src/routes';
 
 // Middlewares
 import { ErrorMiddleware, NotFoundMiddleware } from './src/middlewares';
@@ -21,6 +25,9 @@ const apiRoutes: Router = Router();
 apiRoutes.use(cors());
 apiRoutes.use(express.json());
 apiRoutes.use(logger('dev'));
+
+// use routes
+GameRoutes(apiRoutes, '/game');
 
 app.use('/v1/api', apiRoutes);
 
