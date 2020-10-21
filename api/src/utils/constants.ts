@@ -7,7 +7,7 @@ export enum ErrorType {
 }
 
 export type TError = Error & {
-  id: ErrorType;
+  id?: ErrorType;
   statusCode?: number;
 };
 
