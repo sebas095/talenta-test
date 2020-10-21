@@ -38,3 +38,13 @@ export const ErrorValue = {
     message: 'Método no soportado.',
   },
 };
+
+export enum GameStatus {
+  STARTED = 'STARTED',
+  GAME_OVER = 'GAME_OVER',
+}
+
+export enum Players {
+  PLAYER_ONE = 'X',
+  PLAYER_TWO = 'O',
+}
