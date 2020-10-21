@@ -48,3 +48,9 @@ export enum Players {
   PLAYER_ONE = 'X',
   PLAYER_TWO = 'O',
 }
+
+export enum GameResult {
+  PLAYER_ONE = 'X',
+  PLAYER_TWO = 'O',
+  DRAW = 'D',
+}
