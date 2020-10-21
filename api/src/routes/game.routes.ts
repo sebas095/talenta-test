@@ -1,6 +1,6 @@
 import { Router } from 'express';
-import { GameController } from '../controllers';
-import { container } from '../config/container';
+import { GameController } from '@controllers';
+import { container } from '@config/container';
 
 const gameController: GameController = container.resolve('GameController');
 

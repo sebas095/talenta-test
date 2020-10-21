@@ -1,7 +1,7 @@
 import { BaseService } from './base.service';
-import { GameRepository } from '../repositories';
-import { IGame } from '../models';
-import { GameStatus, GameResult } from '../utils/constants';
+import { GameRepository } from '@repositories';
+import { IGame } from '@models';
+import { GameStatus, GameResult } from '@utils/constants';
 
 let _gameRepository: GameRepository;
 

@@ -8,10 +8,10 @@ import cors from 'cors';
 import mongoose from 'mongoose';
 
 // Routes
-import { GameRoutes } from './src/routes';
+import { GameRoutes } from '@routes';
 
 // Middlewares
-import { ErrorMiddleware, NotFoundMiddleware } from './src/middlewares';
+import { ErrorMiddleware, NotFoundMiddleware } from '@middlewares';
 
 // config
 const PORT: number = Number(process.env.PORT) || 5000;

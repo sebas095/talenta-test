@@ -1,8 +1,8 @@
-import { BaseRepository } from '../repositories/base.repository';
+import { BaseRepository } from '@repositories/base.repository';
 import { Document } from 'mongoose';
 
-import { TError, ErrorType, ErrorValue } from '../utils/constants';
-import { formatError } from '../utils/formatter';
+import { TError, ErrorType, ErrorValue } from '@utils/constants';
+import { formatError } from '@utils/formatter';
 
 class BaseService {
   private repository: BaseRepository;

@@ -1,16 +1,16 @@
 import { createContainer, asClass, asValue, AwilixContainer } from 'awilix';
 
 // services
-import { GameService } from '../services';
+import { GameService } from '@services';
 
 // controllers
-import { GameController } from '../controllers';
+import { GameController } from '@controllers';
 
 // models
-import { Game } from '../models';
+import { Game } from '@models';
 
 // repositories
-import { GameRepository } from '../repositories';
+import { GameRepository } from '@repositories';
 
 const container: AwilixContainer = createContainer();
 

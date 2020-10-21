@@ -1,5 +1,5 @@
 import mongoose, { Schema, Document } from 'mongoose';
-import { GameStatus, Players, GameResult } from '../utils/constants';
+import { GameStatus, Players, GameResult } from '@utils/constants';
 
 export interface IGame extends Document {
   status: GameStatus;

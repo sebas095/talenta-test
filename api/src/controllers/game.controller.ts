@@ -1,6 +1,7 @@
-import { IGame } from '../models';
 import { Request, Response } from 'express';
-import { GameService, IGameList, IGameStats } from '../services';
+
+import { IGame } from '@models';
+import { GameService, IGameList, IGameStats } from '@services';
 
 let _gameService: GameService;
 

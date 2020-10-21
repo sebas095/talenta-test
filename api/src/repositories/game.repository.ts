@@ -1,5 +1,5 @@
 import { BaseRepository } from './base.repository';
-import { IGame } from '../models';
+import { IGame } from '@models';
 import { Model } from 'mongoose';
 
 let _gameModel: Model<IGame>;
