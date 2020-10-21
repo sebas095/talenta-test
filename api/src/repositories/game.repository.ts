@@ -1,10 +1,8 @@
 import { BaseRepository } from './base.repository';
-import { Game } from '../models';
-
-import { IGame } from '../models/game.model';
+import { Game, IGame } from '../models';
 import { Model } from 'mongoose';
 
-class GameRepository extends BaseRepository {
+export class GameRepository extends BaseRepository {
   private gameModel: Model<IGame>;
 
   constructor(Game: Model<IGame>) {
