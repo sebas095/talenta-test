@@ -1,11 +1,7 @@
-import { Request, Response, NextFunction } from 'express';
+import { Request, Response } from 'express';
 import { ErrorValue } from '../utils/constants';
 
-const notFoundMiddleware = (
-  req: Request,
-  res: Response,
-  next: NextFunction,
-) => {
+const notFoundMiddleware = (req: Request, res: Response): void => {
   res.status(ErrorValue.NOT_FOUND.statusCode).json(ErrorValue.NOT_FOUND);
 };
 

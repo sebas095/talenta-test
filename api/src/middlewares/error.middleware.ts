@@ -1,12 +1,7 @@
-import { Request, Response, NextFunction } from 'express';
+import { Request, Response } from 'express';
 import { TError, defaultError } from '../utils/constants';
 
-const errorMiddleware = (
-  err: TError,
-  req: Request,
-  res: Response,
-  next: NextFunction,
-) => {
+const errorMiddleware = (err: TError, req: Request, res: Response): void => {
   const statusCode: number = err.statusCode || defaultError.statusCode;
 
   res.status(statusCode).json({
