@@ -7,27 +7,27 @@ class BaseRepository {
     this.model = model;
   }
 
-  async get(id: string) {
+  async get(id: string): Promise<Document | null> {
     return await this.model.findById(id);
   }
 
-  async getBy(filter: object) {
+  async getBy(filter: object): Promise<Document[] | null> {
     return await this.model.find(filter);
   }
 
-  async getAll() {
+  async getAll(): Promise<Document[] | null> {
     return await this.model.find({});
   }
 
-  async create(entity: object) {
+  async create(entity: object): Promise<Document | null> {
     return await this.model.create(entity);
   }
 
-  async update(id: string, entity: object) {
+  async update(id: string, entity: object): Promise<Document | null> {
     return await this.model.findByIdAndUpdate(id, entity, { new: true });
   }
 
-  async delete(id: string) {
+  async delete(id: string): Promise<boolean> {
     await this.model.findByIdAndDelete(id);
     return true;
   }
