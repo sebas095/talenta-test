@@ -10,6 +10,7 @@ const Container = styled.div`
   justify-content: flex-end;
   align-items: center;
   flex-direction: column;
+  padding-top: 5rem;
 `;
 
 const BoardStyled = styled.div`
