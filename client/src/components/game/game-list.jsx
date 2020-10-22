@@ -24,12 +24,36 @@ const GameListContainer = styled.div`
   overflow-y: auto;
   width: 100%;
   height: ${({ height }) => height || '170px'};
+  direction: ${({ scrollOrientation }) => scrollOrientation || 'ltr'};
+
+  div {
+    direction: ltr;
+  }
+
+  &::-webkit-scrollbar {
+    width: 0.5rem;
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: #000;
+    border-radius: 5px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: ${colors.mainColor};
+    border-radius: 5px;
+
+    &:active,
+    &:hover {
+      background-color: ${colors.secondary};
+    }
+  }
 `;
 
-const GameList = ({ games, title, height }) => (
+const GameList = ({ games, title, height, scrollOrientation }) => (
   <GameListStyled>
     <h1>{title}</h1>
-    <GameListContainer height={height}>
+    <GameListContainer height={height} scrollOrientation={scrollOrientation}>
       {games.map((game, index) => (
         <GameItem
           key={game._id}

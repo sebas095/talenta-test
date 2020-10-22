@@ -25,12 +25,29 @@ const games = {
       _id: 'rtyrt',
       turn: 'X',
     },
+    {
+      _id: 'rtyh',
+      turn: 'X',
+    },
+    {
+      _id: 'poks',
+      turn: 'O',
+    },
+    {
+      _id: 'lklkb7',
+      turn: 'X',
+    },
   ],
 };
 
 const GamesStartedContainer = () => (
   <GamesStartedContainerStyled>
-    <GameList games={games.started} title="Iniciados" height="100%" />
+    <GameList
+      games={games.started}
+      title="Iniciados"
+      height="400px"
+      scrollOrientation="rtl"
+    />
   </GamesStartedContainerStyled>
 );
 
