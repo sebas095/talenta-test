@@ -1,18 +1,21 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 
+import scaleAnimation from '@styles/keyFrames';
+
 const AlertStyled = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
   position: fixed;
-  top: 125px;
+  top: 135px;
   width: 520px;
   height: 95px;
   border-radius: 15px;
   background-color: #f8d7da;
   color: #a35f66;
   padding: 1rem;
+  animation: ${scaleAnimation} 0.7s ease;
 
   button {
     background: none;
@@ -40,18 +43,16 @@ const Alert = ({ message }) => {
     setShow(false);
   };
 
-  if (show) {
-    return (
+  return (
+    show && (
       <AlertStyled>
         <button type="button" onClick={handleShow}>
           X
         </button>
         <p>{message}</p>
       </AlertStyled>
-    );
-  }
-
-  return <></>;
+    )
+  );
 };
 
 export default Alert;
