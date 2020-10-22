@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 
-import scaleAnimation from '@styles/keyFrames';
+import { scaleAnimation } from '@styles/keyFrames';
 
 const AlertStyled = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
   position: fixed;
+  z-index: 10;
   top: 135px;
   width: 520px;
   height: 95px;
