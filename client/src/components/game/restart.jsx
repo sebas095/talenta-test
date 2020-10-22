@@ -8,6 +8,7 @@ const RestartStyled = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  padding-top: 0.4rem;
 `;
 
 const Restart = () => {
