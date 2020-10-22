@@ -2,9 +2,10 @@ import React from 'react';
 import { createGlobalStyle } from 'styled-components';
 
 import { LoadingContextProvider } from '@context/loading';
+import { StatsContextProvider } from '@context/stats';
 import { GamesContextProvider } from '@context/games';
 import { GameContextProvider } from '@context/game';
-import { StatsContextProvider } from '@context/stats';
+import { ErrorContextProvider } from '@context/error';
 
 import GamesStartedContainer from '@containers/games-started-container';
 import GamesFinishedContainer from '@containers/games-finished-container';
@@ -27,18 +28,20 @@ const GlobalStyle = createGlobalStyle`
 
 const App = () => (
   <LoadingContextProvider>
-    <GamesContextProvider>
-      <GameContextProvider>
-        <StatsContextProvider>
-          <GlobalStyle />
-          <Layout>
-            <GamesStartedContainer />
-            <Board />
-            <GamesFinishedContainer />
-          </Layout>
-        </StatsContextProvider>
-      </GameContextProvider>
-    </GamesContextProvider>
+    <ErrorContextProvider>
+      <GamesContextProvider>
+        <GameContextProvider>
+          <StatsContextProvider>
+            <GlobalStyle />
+            <Layout>
+              <GamesStartedContainer />
+              <Board />
+              <GamesFinishedContainer />
+            </Layout>
+          </StatsContextProvider>
+        </GameContextProvider>
+      </GamesContextProvider>
+    </ErrorContextProvider>
   </LoadingContextProvider>
 );
 
