@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import colors from '@styles/colors';
 
 const PlayerStyled = styled.div`
-  width: 250px;
+  width: 350px;
   padding: 0.5rem;
   font-size: 2rem;
   display: flex;
