@@ -12,10 +12,10 @@ const GlobalStyle = createGlobalStyle`
   }
   body {
     margin: 0;
-    background-color: whitesmoke;
     font-family: Arial, Helvetica, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    background: repeating-linear-gradient(90deg, whitesmoke 0, whitesmoke 5%, transparent 0, transparent 50%) 0 / 15px 15px, repeating-linear-gradient(180deg, whitesmoke 0, whitesmoke 5%, transparent 0, transparent 50%) 0 / 15px 15px;
   }
 `;
 
