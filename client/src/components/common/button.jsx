@@ -14,6 +14,7 @@ const Button = styled.button`
   transition: color 0.3s, background-color 0.3s, border 0.3s;
   text-transform: uppercase;
   font-weight: bold;
+  outline: none;
 
   &:hover {
     border: 2px solid;
