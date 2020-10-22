@@ -1,6 +1,11 @@
 import React from 'react';
 import { createGlobalStyle } from 'styled-components';
 
+import { LoadingContextProvider } from '../context/loading';
+import { GamesContextProvider } from '../context/games';
+import { GameContextProvider } from '../context/game';
+import { StatsContextProvider } from '../context/stats';
+
 import Board from './board/board';
 import Layout from './layout/layout';
 import GamesStartedContainer from '../containers/games-started-container';
@@ -20,14 +25,20 @@ const GlobalStyle = createGlobalStyle`
 `;
 
 const App = () => (
-  <>
-    <GlobalStyle />
-    <Layout>
-      <GamesStartedContainer />
-      <Board />
-      <GamesFinishedContainer />
-    </Layout>
-  </>
+  <LoadingContextProvider>
+    <GamesContextProvider>
+      <GameContextProvider>
+        <StatsContextProvider>
+          <GlobalStyle />
+          <Layout>
+            <GamesStartedContainer />
+            <Board />
+            <GamesFinishedContainer />
+          </Layout>
+        </StatsContextProvider>
+      </GameContextProvider>
+    </GamesContextProvider>
+  </LoadingContextProvider>
 );
 
 export default App;
