@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import colors from '../../styles/colors';
 
 const Button = styled.button`
-  width: 180px;
+  width: ${({ width }) => width || '180px'};
   cursor: pointer;
   background: none;
   background-color: ${colors.mainColor};
