@@ -13,11 +13,11 @@ const TurnStyled = styled.div`
   }
 `;
 
-const Turn = ({ player }) => {
+const Turn = ({ player, text }) => {
   return (
     <TurnStyled>
-      Turno de
-      <span>{` ${player}`}</span>
+      {text}
+      <span>{player}</span>
     </TurnStyled>
   );
 };
