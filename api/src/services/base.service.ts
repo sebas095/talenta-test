@@ -1,5 +1,5 @@
 import { BaseRepository } from '@repositories/base.repository';
-import { Document } from 'mongoose';
+import { Document, Types } from 'mongoose';
 
 import { TError, ErrorType, ErrorValue } from '@utils/constants';
 import { formatError } from '@utils/formatter';
@@ -18,6 +18,16 @@ class BaseService {
         ErrorValue.BAD_REQUEST.statusCode,
         `${ErrorValue.BAD_REQUEST.message}. Se debe enviar el ID`,
       );
+      throw error;
+    }
+
+    if (!Types.ObjectId.isValid(id)) {
+      const error: TError = formatError(
+        ErrorType.BAD_REQUEST,
+        ErrorValue.BAD_REQUEST.statusCode,
+        `${ErrorValue.BAD_REQUEST.message}. ID inválido`,
+      );
+
       throw error;
     }
 
@@ -55,6 +65,16 @@ class BaseService {
       throw error;
     }
 
+    if (!Types.ObjectId.isValid(id)) {
+      const error: TError = formatError(
+        ErrorType.BAD_REQUEST,
+        ErrorValue.BAD_REQUEST.statusCode,
+        `${ErrorValue.BAD_REQUEST.message}. ID inválido`,
+      );
+
+      throw error;
+    }
+
     return await this.repository.update(id, entity);
   }
 
@@ -65,6 +85,16 @@ class BaseService {
         ErrorValue.BAD_REQUEST.statusCode,
         `${ErrorValue.BAD_REQUEST.message}. Se debe enviar el ID`,
       );
+      throw error;
+    }
+
+    if (!Types.ObjectId.isValid(id)) {
+      const error: TError = formatError(
+        ErrorType.BAD_REQUEST,
+        ErrorValue.BAD_REQUEST.statusCode,
+        `${ErrorValue.BAD_REQUEST.message}. ID inválido`,
+      );
+
       throw error;
     }
 
