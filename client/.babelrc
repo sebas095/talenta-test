@@ -6,6 +6,19 @@
       {
         "regenerator": true
       }
+    ],
+    [
+      "module-resolver",
+      {
+        "alias": {
+          "@components": "./src/components",
+          "@containers": "./src/containers",
+          "@context": "./src/context",
+          "@services": "./src/services",
+          "@styles": "./src/styles",
+          "@utils": "./src/utils"
+        }
+      }
     ]
   ]
 }

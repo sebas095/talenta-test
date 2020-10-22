@@ -23,5 +23,10 @@
     "navigator": true,
     "fetch": true
   },
-  "parser": "babel-eslint"
+  "parser": "babel-eslint",
+  "settings": {
+    "import/resolver": {
+      "babel-module": { "extensions": [".js", ".jsx"] }
+    }
+  }
 }
