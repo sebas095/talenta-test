@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import styled from 'styled-components';
 
-import scaleAnimation from '@styles/keyFrames';
+import { scaleAnimation } from '@styles/keyFrames';
 
 const modalRoot = document.getElementById('modal');
 
