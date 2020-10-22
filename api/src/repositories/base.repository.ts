@@ -12,11 +12,11 @@ class BaseRepository {
   }
 
   async getBy(filter: Record<string, unknown>): Promise<Document[] | null> {
-    return await this.model.find(filter);
+    return await this.model.find(filter).sort({ createdAt: -1 }); // DESC
   }
 
   async getAll(): Promise<Document[] | null> {
-    return await this.model.find({});
+    return await this.model.find({}).sort({ createdAt: -1 }); // DESC
   }
 
   async create(entity: Record<string, unknown>): Promise<Document | null> {
