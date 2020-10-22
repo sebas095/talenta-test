@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import PlayersContainer from '../../containers/players-container';
+import PlayersContainer from '@containers/players-container';
 
 const LayoutStyled = styled.div`
   width: 100%;

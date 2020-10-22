@@ -1,10 +1,9 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
 import styled from 'styled-components';
+import colors from '@styles/colors';
 
 import GameItem from './game-item';
-
-import colors from '../../styles/colors';
 
 const GameListStyled = styled.div`
   width: 100%;

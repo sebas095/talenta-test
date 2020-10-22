@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import GameList from '../components/game/game-list';
+import GameList from '@components/game/game-list';
 
 const GamesFinishedContainerStyled = styled.div`
   width: 100%;

@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import colors from '../../styles/colors';
+import colors from '@styles/colors';
 
 const Button = styled.button`
   width: ${({ width }) => width || '180px'};

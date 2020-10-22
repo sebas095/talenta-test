@@ -1,4 +1,4 @@
-import defaultError from '../utils/constants';
+import defaultError from '@utils/constants';
 
 const { API_ENDPOINT } = process.env;
 

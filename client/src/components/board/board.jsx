@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import Restart from '@components/game/restart';
 import Square from './square';
-import Restart from '../game/restart';
 
 const Container = styled.div`
   width: 100%;

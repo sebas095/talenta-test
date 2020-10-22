@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import Button from '@components/common/button';
 import Turn from './turn';
-import Button from '../common/button';
 
 const GameItemStyled = styled.div`
   width: 450px;

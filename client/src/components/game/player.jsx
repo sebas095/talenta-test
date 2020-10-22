@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import colors from '../../styles/colors';
+import colors from '@styles/colors';
 
 const PlayerStyled = styled.div`
   width: 250px;
