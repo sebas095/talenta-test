@@ -1,12 +1,19 @@
 import { keyframes } from 'styled-components';
 
-const scaleAnimation = keyframes`
+export const scaleAnimation = keyframes`
   from {
     transform: scale(0);
   }
   to {
-    transform:scale(1);
+    transform: scale(1);
   }
 `;
 
-export default scaleAnimation;
+export const spinAnimation = keyframes`
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+`;
