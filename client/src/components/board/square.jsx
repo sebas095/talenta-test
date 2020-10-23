@@ -4,6 +4,8 @@ import styled from 'styled-components';
 import colors from '@styles/colors';
 
 const SquareStyled = styled.div`
+  width: 110px;
+  height: 92px;
   text-align: center;
   font-size: 5rem;
   font-weight: bold;
@@ -22,10 +24,13 @@ const SquareStyled = styled.div`
   }
 `;
 
-const Board = ({ player }) => (
-  <SquareStyled color={player === 'X' ? 'black' : colors.mainColor}>
+const Square = ({ player, handleClick }) => (
+  <SquareStyled
+    color={player === 'X' ? 'black' : colors.mainColor}
+    onClick={handleClick}
+  >
     {player}
   </SquareStyled>
 );
 
-export default Board;
+export default Square;
