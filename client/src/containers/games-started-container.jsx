@@ -26,23 +26,25 @@ const GamesStartedContainer = () => {
   const { loading, setLoading } = useContext(LoadingContext);
 
   const fetchGame = useGetGame({ game, setGame, setError });
-  const fetchGames = useListGames({ setLoading, setError, setGames, game });
+  const fetchGames = useListGames({ setLoading, setError, setGames });
 
   const showGame = id => {
-    setGame({ ...game, gameId: id });
+    setGame({ ...game, _id: id });
     localStorage.setItem('gameId', id);
   };
 
   useEffect(() => {
-    fetchGame();
+    if (localStorage.getItem('gameId')) {
+      fetchGame();
+    }
     fetchGames();
-  }, [game.gameId, game.winner]);
+  }, [game.winner, localStorage.getItem('gameId')]);
 
   return (
     <GamesStartedContainerStyled>
       <GameList
         games={games.started}
-        currentGame={game.gameId}
+        currentGame={game._id}
         title="Iniciados"
         height="400px"
         scrollOrientation="rtl"
