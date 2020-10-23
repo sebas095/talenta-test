@@ -9,9 +9,9 @@ import { ErrorContextProvider } from '@context/error';
 
 import GamesStartedContainer from '@containers/games-started-container';
 import GamesFinishedContainer from '@containers/games-finished-container';
+import BoardContainer from '@containers/board-container';
 
 import Layout from './layout/layout';
-import Board from './board/board';
 
 const GlobalStyle = createGlobalStyle`
   * {
@@ -35,7 +35,7 @@ const App = () => (
             <GlobalStyle />
             <Layout>
               <GamesStartedContainer />
-              <Board />
+              <BoardContainer />
               <GamesFinishedContainer />
             </Layout>
           </StatsContextProvider>
