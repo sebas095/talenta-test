@@ -14,6 +14,7 @@
           "@components": "./src/components",
           "@containers": "./src/containers",
           "@context": "./src/context",
+          "@hooks": "./src/hooks",
           "@services": "./src/services",
           "@styles": "./src/styles",
           "@utils": "./src/utils"
