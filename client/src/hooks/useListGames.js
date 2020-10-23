@@ -7,7 +7,7 @@ const useListGames = ({ setLoading, setError, setGames, game }) => async () => {
 
   if (data.message) {
     setError(data.message);
-  } else if (data.started[0]._id === game.gameId) {
+  } else if (game.gameId && data.started[0]._id === game.gameId) {
     setGames({ ...data, started: data.started.slice(1) });
   } else {
     setGames(data);
