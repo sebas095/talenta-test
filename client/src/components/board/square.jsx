@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 import colors from '@styles/colors';
+import { fadeAnimation } from '@styles/keyFrames';
 
 const SquareStyled = styled.div`
   width: 110px;
@@ -15,6 +16,10 @@ const SquareStyled = styled.div`
     active ? `${colors.winColor}` : 'transparent'};
   position: relative;
   cursor: pointer;
+
+  .player--active {
+    animation: ${fadeAnimation} 0.7s ease-in;
+  }
 
   &:nth-child(3n - 1) {
     border-right: 6px solid ${colors.secondary};
@@ -32,7 +37,7 @@ const Square = ({ player, handleClick, active }) => (
     onClick={handleClick}
     active={active}
   >
-    {player}
+    <span className={player ? 'player--active' : ''}>{player}</span>
   </SquareStyled>
 );
 
