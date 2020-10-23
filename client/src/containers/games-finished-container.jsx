@@ -22,7 +22,7 @@ const GamesFinishedContainer = () => {
   const { loading } = useContext(LoadingContext);
 
   const showGame = id => {
-    setGame({ ...game, gameId: id });
+    setGame({ ...game, _id: id });
     localStorage.setItem('gameId', id);
   };
 
@@ -32,7 +32,7 @@ const GamesFinishedContainer = () => {
         games={games.finished.wons}
         title="Ganados"
         showGame={showGame}
-        currentGame={game.gameId}
+        currentGame={game._id}
         loading={loading}
         message="No hay victorias registradas..."
       />
@@ -40,7 +40,7 @@ const GamesFinishedContainer = () => {
         games={games.finished.tied}
         title="Empatados"
         showGame={showGame}
-        currentGame={game.gameId}
+        currentGame={game._id}
         loading={loading}
         message="No hay empates registrados..."
       />
