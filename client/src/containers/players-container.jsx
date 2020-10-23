@@ -1,8 +1,6 @@
 import React, { useContext, useEffect } from 'react';
 import styled from 'styled-components';
 
-import ApiService from '@services/api.service';
-
 import Player from '@components/game/player';
 import Turn from '@components/game/turn';
 import Alert from '@components/common/alert';
@@ -11,6 +9,8 @@ import { ErrorContext } from '@context/error';
 import { GameContext } from '@context/game';
 import { GamesContext } from '@context/games';
 import { StatsContext } from '@context/stats';
+
+import useStatsGame from '@hooks/useStatsGame';
 
 import PauseContainer from './pause-container';
 
@@ -35,14 +35,7 @@ const PlayersContainer = () => {
   const { game } = useContext(GameContext);
   const { games } = useContext(GamesContext);
 
-  const fetchStats = async () => {
-    const data = await ApiService.getStats();
-    if (data.message) {
-      setError(data.message);
-    } else {
-      setStats(data);
-    }
-  };
+  const fetchStats = useStatsGame({ setError, setStats });
 
   useEffect(() => {
     fetchStats();
