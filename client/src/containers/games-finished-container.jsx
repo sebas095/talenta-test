@@ -23,6 +23,7 @@ const GamesFinishedContainer = () => {
 
   const showGame = id => {
     setGame({ ...game, gameId: id });
+    localStorage.setItem('gameId', id);
   };
 
   return (
