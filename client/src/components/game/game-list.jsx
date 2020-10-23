@@ -60,7 +60,7 @@ const GameList = ({
   message,
 }) => {
   const render = () => {
-    if (games.legth > 0) {
+    if (games.length > 0) {
       return (
         <GameListContainerStyled
           height={height}
