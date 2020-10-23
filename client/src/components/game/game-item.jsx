@@ -18,7 +18,7 @@ const GameItemStyled = styled.div`
   margin-right: auto;
 `;
 
-const GameItem = ({ playNumber, turn, /* id, */ winner }) => {
+const GameItem = ({ playNumber, turn, id, winner, showGame }) => {
   const getInfo = () => {
     if (winner) {
       if (winner === 'D') return <></>;
@@ -32,7 +32,10 @@ const GameItem = ({ playNumber, turn, /* id, */ winner }) => {
       {/* eslint-disable-next-line react/jsx-one-expression-per-line */}
       <p>Juego N° {playNumber}</p>
       {getInfo()}
-      <Button width={`${winner ? '80px' : '130px'}`}>
+      <Button
+        width={`${winner ? '80px' : '130px'}`}
+        onClick={() => showGame(id)}
+      >
         {winner ? 'Ver' : 'Reanudar'}
       </Button>
     </GameItemStyled>
