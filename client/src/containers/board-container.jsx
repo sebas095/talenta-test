@@ -3,7 +3,6 @@ import Board from '@components/board/board';
 
 import { GameContext } from '@context/game';
 import { ErrorContext } from '@context/error';
-import { LoadingContext } from '@context/loading';
 
 import useCreateGame from '@hooks/useCreateGame';
 import useUpdateGame from '@hooks/useUpdateGame';
@@ -18,10 +17,8 @@ import { GameStatus } from '@utils/constants';
 const BoardContainer = () => {
   const { game, setGame } = useContext(GameContext);
   const { setError } = useContext(ErrorContext);
-  const { setLoading } = useContext(LoadingContext);
 
   const createGame = useCreateGame({
-    setLoading,
     setError,
     setGame,
     game,
