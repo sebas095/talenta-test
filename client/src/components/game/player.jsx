@@ -21,9 +21,9 @@ const PlayerStyled = styled.div`
   }
 `;
 
-const Player = ({ score, player, active }) => {
+const Player = ({ score, player, turn }) => {
   return (
-    <PlayerStyled active={active}>
+    <PlayerStyled active={player === turn}>
       <div className="players__player">{player}</div>
       <div className="players__score">{score > 0 ? score : '-'}</div>
     </PlayerStyled>
