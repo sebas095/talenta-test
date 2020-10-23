@@ -1,11 +1,13 @@
 import ApiService from '@services/api.service';
 
-const useUpdateGame = ({ game, setGame, setError }) => async () => {
-  const data = await ApiService.updateGame(game.gameId, game);
+const useUpdateGame = ({ game, setError }) => async () => {
+  if (!localStorage.getItem('gameId')) return;
+  const data = await ApiService.updateGame(
+    localStorage.getItem('gameId'),
+    game,
+  );
   if (data.message) {
     setError(data.message);
-  } else {
-    setGame({ ...game, ...data });
   }
 };
 
