@@ -11,6 +11,8 @@ const SquareStyled = styled.div`
   font-weight: bold;
   text-transform: uppercase;
   color: ${({ color }) => color || '#000'};
+  background-color: ${({ active }) =>
+    active ? `${colors.winColor}` : 'transparent'};
   position: relative;
   cursor: pointer;
 
@@ -24,10 +26,11 @@ const SquareStyled = styled.div`
   }
 `;
 
-const Square = ({ player, handleClick }) => (
+const Square = ({ player, handleClick, active }) => (
   <SquareStyled
     color={player === 'X' ? 'black' : colors.mainColor}
     onClick={handleClick}
+    active={active}
   >
     {player}
   </SquareStyled>
