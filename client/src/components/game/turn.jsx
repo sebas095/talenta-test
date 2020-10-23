@@ -14,11 +14,11 @@ const TurnStyled = styled.div`
   }
 `;
 
-const Turn = ({ player, text }) => {
+const Turn = ({ player, text, winner }) => {
   return (
     <TurnStyled>
       {text}
-      <span>{player}</span>
+      {(!winner || winner !== 'D') && <span>{player}</span>}
     </TurnStyled>
   );
 };
