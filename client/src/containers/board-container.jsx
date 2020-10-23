@@ -1,7 +1,12 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import Board from '@components/board/board';
 
 import { GameContext } from '@context/game';
+import { ErrorContext } from '@context/error';
+import { LoadingContext } from '@context/loading';
+
+import useCreateGame from '@hooks/useCreateGame';
+import useUpdateGame from '@hooks/useUpdateGame';
 
 import {
   calculateWinner,
@@ -12,6 +17,29 @@ import { GameStatus } from '@utils/constants';
 
 const BoardContainer = () => {
   const { game, setGame } = useContext(GameContext);
+  const { setError } = useContext(ErrorContext);
+  const { setLoading } = useContext(LoadingContext);
+
+  const createGame = useCreateGame({
+    setLoading,
+    setError,
+    setGame,
+    game,
+  });
+
+  const updateGame = useUpdateGame({
+    game,
+    setGame,
+    setError,
+  });
+
+  useEffect(() => {
+    if (localStorage.getItem('gameId')) {
+      updateGame();
+    } else {
+      createGame();
+    }
+  }, [game]);
 
   const handleClick = index => {
     const board = [...game.board];
@@ -20,7 +48,7 @@ const BoardContainer = () => {
     let status = GameStatus.STARTED;
     board[index] = turn;
 
-    if (game?.winner) return;
+    if (game.winner) return;
     if (isDraw(board)) {
       turn = '';
       winner = 'D';
@@ -40,7 +68,7 @@ const BoardContainer = () => {
     <Board
       handleClick={handleClick}
       board={game.board}
-      hasWinner={!!game?.winner}
+      hasWinner={!!game.winner}
       isWinner={calculateWinnerIndex(game.board)}
     />
   );
