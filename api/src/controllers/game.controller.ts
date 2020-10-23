@@ -35,7 +35,7 @@ class GameController {
   async update(req: Request, res: Response): Promise<Response<IGame>> {
     const { gameId } = req.params;
     const { body } = req;
-    const game: IGame = (await _gameService.update(gameId, body)) as IGame;
+    const game: IGame = (await _gameService.updateGame(gameId, body)) as IGame;
     return res.json(game);
   }
 }

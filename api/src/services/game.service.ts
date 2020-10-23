@@ -11,6 +11,19 @@ class GameService extends BaseService {
     _gameRepository = GameRepository;
   }
 
+  async updateGame(
+    gameId: string,
+    entity: Record<string, unknown>,
+  ): Promise<IGame> {
+    const game: IGame = (await _gameRepository.get(gameId)) as IGame;
+    if (game.status === GameStatus.GAME_OVER) {
+      return game;
+    }
+
+    const gameUpdated = (await _gameRepository.update(gameId, entity)) as IGame;
+    return gameUpdated;
+  }
+
   async listGames(): Promise<IGameList> {
     const games: IGame[] = (await _gameRepository.getAll()) as IGame[];
     const started: IGame[] = games.filter(
