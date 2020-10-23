@@ -17,29 +17,42 @@ const BoardStyled = styled.div`
   width: 100%;
   grid-area: game;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, 110px);
   justify-content: center;
   align-content: center;
   margin: 30px 0;
 `;
 
-const Board = () => {
+const Board = ({
+  handleClick,
+  handleRestartClick,
+  board,
+  hasWinner,
+  isWinner,
+}) => {
   const createBoard = () => {
-    const board = [];
+    const boardGame = [];
     for (let row = 0; row < 3; row += 1) {
       for (let col = 0; col < 3; col += 1) {
         const index = row * 3 + col;
-        board.push(<Square key={index} player={index % 2 === 0 ? 'X' : 'O'} />);
+        boardGame.push(
+          <Square
+            key={index}
+            player={board[index]}
+            handleClick={() => handleClick(index)}
+            active={isWinner.includes(index)}
+          />,
+        );
       }
     }
 
-    return board;
+    return boardGame;
   };
 
   return (
     <Container>
       <BoardStyled>{createBoard()}</BoardStyled>
-      <Restart />
+      <Restart handleClick={handleRestartClick} hasWinner={hasWinner} />
     </Container>
   );
 };
