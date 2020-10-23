@@ -32,7 +32,7 @@ const GamesFinishedContainer = () => {
         games={games.finished.wons}
         title="Ganados"
         showGame={showGame}
-        currentGame={game._id}
+        currentGame={game}
         loading={loading}
         message="No hay victorias registradas..."
       />
@@ -40,7 +40,7 @@ const GamesFinishedContainer = () => {
         games={games.finished.tied}
         title="Empatados"
         showGame={showGame}
-        currentGame={game._id}
+        currentGame={game}
         loading={loading}
         message="No hay empates registrados..."
       />

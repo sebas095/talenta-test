@@ -26,11 +26,20 @@ const GameItem = ({ playNumber, turn, id, winner, showGame, currentGame }) => {
       if (winner === 'D') return <></>;
       return <Turn player={turn} text="Ganador: " />;
     }
-    return <Turn player={turn} text="Turno de " />;
+    return (
+      <Turn
+        player={
+          currentGame.turn && !currentGame.winner && currentGame._id === id
+            ? currentGame.turn
+            : turn
+        }
+        text="Turno de "
+      />
+    );
   };
 
   return (
-    <GameItemStyled active={currentGame && currentGame === id}>
+    <GameItemStyled active={currentGame?._id && currentGame._id === id}>
       {/* eslint-disable-next-line react/jsx-one-expression-per-line */}
       <p>Juego N° {playNumber}</p>
       {getInfo()}
