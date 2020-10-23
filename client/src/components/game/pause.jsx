@@ -54,10 +54,10 @@ const ButtonsContainer = styled.div`
   width: 100%;
 `;
 
-const Pause = ({ isOpen, toggleModal }) => (
+const Pause = ({ isOpen, toggleModal, handleNewGame }) => (
   <PauseStyled>
     <Button width="100px" onClick={toggleModal}>
-      Pausa
+      Pausar
     </Button>
     <Modal isOpen={isOpen}>
       <ContentStyled>
@@ -67,7 +67,7 @@ const Pause = ({ isOpen, toggleModal }) => (
         <p>Pausa</p>
         <ButtonsContainer>
           <Button onClick={toggleModal}>Reanudar</Button>
-          <Button invertColor onClick={toggleModal}>
+          <Button invertColor onClick={handleNewGame}>
             Nueva Partida
           </Button>
         </ButtonsContainer>
