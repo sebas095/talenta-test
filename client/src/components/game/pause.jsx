@@ -56,7 +56,7 @@ const ButtonsContainer = styled.div`
 
 const Pause = ({ isOpen, toggleModal, handleNewGame }) => (
   <PauseStyled>
-    <Button width="100px" onClick={toggleModal}>
+    <Button width="110px" onClick={toggleModal}>
       Pausar
     </Button>
     <Modal isOpen={isOpen}>
