@@ -44,9 +44,19 @@ const PlayersContainer = () => {
   return (
     <PlayersContainerStyled>
       <ContainerStyled>
-        <Player score={stats.playerOne} player="X" turn={game?.turn || 'X'} />
+        <Player
+          score={stats.playerOne}
+          player="X"
+          winner={game.winner}
+          turn={game?.turn || 'X'}
+        />
         <PauseContainer />
-        <Player score={stats.playerTwo} player="O" turn={game?.turn || 'X'} />
+        <Player
+          score={stats.playerTwo}
+          player="O"
+          winner={game.winner}
+          turn={game?.turn || 'X'}
+        />
       </ContainerStyled>
       {game?.winner ? (
         <Turn
