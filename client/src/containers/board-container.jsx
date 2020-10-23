@@ -26,17 +26,15 @@ const BoardContainer = () => {
 
   const updateGame = useUpdateGame({
     game,
-    setGame,
     setError,
   });
 
   useEffect(() => {
-    if (localStorage.getItem('gameId')) {
-      updateGame();
-    } else {
+    if (!localStorage.getItem('gameId')) {
       createGame();
     }
-  }, [game]);
+    updateGame();
+  }, [game.board]);
 
   const handleClick = index => {
     const board = [...game.board];
@@ -61,12 +59,18 @@ const BoardContainer = () => {
     setGame({ ...game, board, turn, winner, status });
   };
 
+  const handleRestartClick = () => {
+    localStorage.removeItem('gameId');
+    setGame({ board: Array(9).fill(null), winner: '' });
+  };
+
   return (
     <Board
       handleClick={handleClick}
       board={game.board}
       hasWinner={!!game.winner}
       isWinner={calculateWinnerIndex(game.board)}
+      handleRestartClick={handleRestartClick}
     />
   );
 };
