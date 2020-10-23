@@ -5,7 +5,6 @@ export const GameContext = createContext({});
 export const GameContextProvider = ({ children }) => {
   const [game, setGame] = useState({
     board: Array(9).fill(null),
-    gameId: '',
     winner: '',
   });
 
