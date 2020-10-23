@@ -57,6 +57,7 @@ const GameList = ({
   scrollOrientation,
   showGame,
   loading,
+  currentGame,
   message,
 }) => {
   const render = () => {
@@ -70,6 +71,7 @@ const GameList = ({
             <GameItem
               key={game._id}
               id={game._id}
+              currentGame={currentGame}
               playNumber={index + 1}
               {...game}
               turn={game.winner || game.turn}

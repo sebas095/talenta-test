@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import colors from '@styles/colors';
+
 import Button from '@components/common/button';
 import Turn from './turn';
 
@@ -12,13 +14,13 @@ const GameItemStyled = styled.div`
   padding: 0.5rem 2rem;
   box-shadow: 0 2px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
   border-radius: 10px;
-  background-color: white;
+  background-color: ${({ active }) => (active ? colors.secondary : 'white')};
   margin-bottom: 5px;
   margin-left: auto;
   margin-right: auto;
 `;
 
-const GameItem = ({ playNumber, turn, id, winner, showGame }) => {
+const GameItem = ({ playNumber, turn, id, winner, showGame, currentGame }) => {
   const getInfo = () => {
     if (winner) {
       if (winner === 'D') return <></>;
@@ -28,7 +30,7 @@ const GameItem = ({ playNumber, turn, id, winner, showGame }) => {
   };
 
   return (
-    <GameItemStyled>
+    <GameItemStyled active={currentGame && currentGame === id}>
       {/* eslint-disable-next-line react/jsx-one-expression-per-line */}
       <p>Juego N° {playNumber}</p>
       {getInfo()}

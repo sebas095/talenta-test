@@ -42,6 +42,7 @@ const GamesStartedContainer = () => {
     <GamesStartedContainerStyled>
       <GameList
         games={games.started}
+        currentGame={game.gameId}
         title="Iniciados"
         height="400px"
         scrollOrientation="rtl"
