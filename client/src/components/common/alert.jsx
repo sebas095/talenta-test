@@ -45,7 +45,8 @@ const Alert = ({ message }) => {
   };
 
   return (
-    show && (
+    show &&
+    message && (
       <AlertStyled>
         <button type="button" onClick={handleShow}>
           X
