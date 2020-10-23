@@ -12,6 +12,7 @@ export default (app: Router, mountPoint: string): void => {
   router.get('/stats', gameController.stats);
   router.get('/:gameId', gameController.get);
 
+  router.post('/', gameController.create);
   router.patch('/:gameId', gameController.update);
 
   app.use(mountPoint, router);
