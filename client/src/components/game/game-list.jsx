@@ -3,6 +3,7 @@ import React from 'react';
 import styled from 'styled-components';
 import colors from '@styles/colors';
 
+import Loader from '@components/common/loader';
 import GameItem from './game-item';
 
 const GameListStyled = styled.div`
@@ -19,7 +20,7 @@ const GameListStyled = styled.div`
   }
 `;
 
-const GameListContainer = styled.div`
+const GameListContainerStyled = styled.div`
   overflow-y: auto;
   width: 100%;
   height: ${({ height }) => height || '170px'};
@@ -49,20 +50,45 @@ const GameListContainer = styled.div`
   }
 `;
 
-const GameList = ({ games, title, height, scrollOrientation }) => (
-  <GameListStyled>
-    <h1>{title}</h1>
-    <GameListContainer height={height} scrollOrientation={scrollOrientation}>
-      {games.map((game, index) => (
-        <GameItem
-          key={game._id}
-          playNumber={index + 1}
-          {...game}
-          turn={game.winner || game.turn}
-        />
-      ))}
-    </GameListContainer>
-  </GameListStyled>
-);
+const GameList = ({
+  games,
+  title,
+  height,
+  scrollOrientation,
+  showGame,
+  loading,
+  message,
+}) => {
+  const render = () => {
+    if (games.legth > 0) {
+      return (
+        <GameListContainerStyled
+          height={height}
+          scrollOrientation={scrollOrientation}
+        >
+          {games.map((game, index) => (
+            <GameItem
+              key={game._id}
+              id={game._id}
+              playNumber={index + 1}
+              {...game}
+              turn={game.winner || game.turn}
+              showGame={showGame}
+            />
+          ))}
+        </GameListContainerStyled>
+      );
+    }
+
+    return <div className="fallback">{message}</div>;
+  };
+
+  return (
+    <GameListStyled>
+      <h1>{title}</h1>
+      {loading ? <Loader /> : render()}
+    </GameListStyled>
+  );
+};
 
 export default GameList;
