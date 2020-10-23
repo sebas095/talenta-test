@@ -1,11 +1,13 @@
 import React, { useState, createContext } from 'react';
 
-export const Stats = createContext({});
+export const StatsContext = createContext({});
 
 export const StatsContextProvider = ({ children }) => {
-  const [stats, setStats] = useState({});
+  const [stats, setStats] = useState({ playerOne: 0, playerTwo: 0 });
 
   return (
-    <Stats.Provider value={{ stats, setStats }}>{children}</Stats.Provider>
+    <StatsContext.Provider value={{ stats, setStats }}>
+      {children}
+    </StatsContext.Provider>
   );
 };
