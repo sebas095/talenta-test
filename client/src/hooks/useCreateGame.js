@@ -1,15 +1,7 @@
 import ApiService from '@services/api.service';
 
-const useCreateGame = ({
-  setLoading,
-  setError,
-  setGame,
-  game,
-  body,
-}) => async () => {
-  setLoading(true);
+const useCreateGame = ({ setError, setGame, game, body }) => async () => {
   const data = await ApiService.createGame(body || game);
-  setLoading(false);
 
   if (data.message) {
     setError(data.message);
