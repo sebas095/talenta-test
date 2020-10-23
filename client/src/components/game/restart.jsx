@@ -9,12 +9,21 @@ const RestartStyled = styled.div`
   justify-content: center;
   align-items: center;
   padding-top: 0.4rem;
+
+  .restart__space {
+    width: 100px;
+    height: 50px;
+  }
 `;
 
-const Restart = () => {
+const Restart = ({ handleClick, hasWinner }) => {
   return (
     <RestartStyled>
-      <Button>Nueva Partida</Button>
+      {hasWinner ? (
+        <Button onClick={handleClick}>Nueva Partida</Button>
+      ) : (
+        <div className="restart__space" />
+      )}
     </RestartStyled>
   );
 };
