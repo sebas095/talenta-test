@@ -14,7 +14,6 @@ const PlayerStyled = styled.div`
   border-radius: 20px;
   border-bottom: ${({ active }) =>
     active ? `solid 5px ${colors.mainColor}` : 'none'};
-  cursor: pointer;
 
   .players__score {
     color: ${colors.secondary};
