@@ -8,6 +8,7 @@
       "@repositories": ["src/repositories"],
       "@routes": ["src/routes"],
       "@services": ["src/services"],
+      "@mocks": ["tests/mocks"],
 
       "@config/*": ["src/config/*"],
       "@controllers/*": ["src/controllers/*"],
@@ -16,7 +17,9 @@
       "@repositories/*": ["src/repositories/*"],
       "@routes/*": ["src/routes/*"],
       "@services/*": ["src/services/*"],
-      "@utils/*": ["src/utils/*"]
+      "@utils/*": ["src/utils/*"],
+      "@integration/*": ["tests/integration/*"],
+      "@unit/*": ["tests/unit/*"]
     },
     "target": "es6",
     "module": "commonjs",
