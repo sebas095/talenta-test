@@ -8,6 +8,7 @@ yarn-error.log*
 # Compiled binary addons (https://nodejs.org/api/addons.html)
 */build
 */coverage
+*/globalConfig.json
 
 # Dependency directories
 */node_modules/
