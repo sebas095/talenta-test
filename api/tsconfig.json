@@ -9,6 +9,7 @@
       "@routes": ["src/routes"],
       "@services": ["src/services"],
       "@mocks": ["tests/mocks"],
+      "@app": ["index"],
 
       "@config/*": ["src/config/*"],
       "@controllers/*": ["src/controllers/*"],
@@ -18,6 +19,7 @@
       "@routes/*": ["src/routes/*"],
       "@services/*": ["src/services/*"],
       "@utils/*": ["src/utils/*"],
+      "@startup/*": ["src/startup/*"],
       "@integration/*": ["tests/integration/*"],
       "@unit/*": ["tests/unit/*"]
     },
