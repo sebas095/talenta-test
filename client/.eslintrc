@@ -28,5 +28,8 @@
     "import/resolver": {
       "babel-module": { "extensions": [".js", ".jsx"] }
     }
+  },
+  "env": {
+    "jest": true
   }
 }
