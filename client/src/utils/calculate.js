@@ -34,6 +34,7 @@ export function isDraw(squares) {
   return !hasWinner && !squares.includes(null);
 }
 
+// Width 3 in a matrix 3x3
 export function indexToRowCol(index, width) {
   const row = Math.floor(index / width);
   const col = index % width;
